@@ -1,0 +1,129 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/Letter.gd" id="1_letter"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_letter"]
+bg_color = Color(0.984, 0.965, 0.918, 0.96)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.788, 0.482, 0.388, 0.5)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0, 0, 0, 0.25)
+shadow_size = 12
+shadow_offset = Vector2(0, 4)
+
+[node name="Letter" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 1
+script = ExtResource("1_letter")
+
+[node name="Dim" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.08, 0.05, 0.03, 0.75)
+mouse_filter = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -260.0
+offset_right = 320.0
+offset_bottom = 260.0
+mouse_filter = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_letter")
+
+[node name="VBox" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 28.0
+offset_top = 24.0
+offset_right = -28.0
+offset_bottom = -24.0
+theme_override_constants/separation = 12
+
+[node name="Header" type="HBoxContainer" parent="Panel/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Icon" type="Label" parent="Panel/VBox/Header"]
+custom_minimum_size = Vector2(56, 56)
+layout_mode = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+theme_override_font_sizes/font_size = 44
+text = "💌"
+
+[node name="HeaderText" type="VBoxContainer" parent="Panel/VBox/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="Sender" type="Label" parent="Panel/VBox/Header/HeaderText"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+theme_override_colors/font_color = Color(0.55, 0.50, 0.43, 1)
+text = "NPC · Title"
+
+[node name="Title" type="Label" parent="Panel/VBox/Header/HeaderText"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+theme_override_colors/font_color = Color(0.239, 0.157, 0.09, 1)
+text = "信件标题"
+
+[node name="Divider" type="ColorRect" parent="Panel/VBox"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+color = Color(0.788, 0.482, 0.388, 0.5)
+
+[node name="ContentScroll" type="ScrollContainer" parent="Panel/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Content" type="RichTextLabel" parent="Panel/VBox/ContentScroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+fit_content = true
+scroll_active = true
+theme_override_font_sizes/normal_font_size = 17
+theme_override_colors/default_color = Color(0.239, 0.157, 0.09, 1)
+theme_override_line_separation = 6.0
+
+[node name="Footer" type="HBoxContainer" parent="Panel/VBox"]
+layout_mode = 2
+alignment = 2
+
+[node name="Hint" type="Label" parent="Panel/VBox/Footer"]
+layout_mode = 2
+size_flags_horizontal = 3
+vertical_alignment = 1
+theme_override_font_sizes/font_size = 12
+theme_override_colors/font_color = Color(0.55, 0.50, 0.43, 1)
+text = "按 ESC 或回车跳过 · 按下方按钮继续"
+
+[node name="SkipButton" type="Button" parent="Panel/VBox/Footer"]
+layout_mode = 2
+text = "继续 →
+"
+theme_override_font_sizes/font_size = 16
+theme_override_colors/font_color = Color(0.98, 0.93, 0.85, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.98, 0.82, 0.5, 1)

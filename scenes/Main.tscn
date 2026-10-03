@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/Main.gd" id="1_main"]
+[ext_resource type="PackedScene" uid="uid://b1coverstart001" path="res://scenes/cover/CoverStart.tscn" id="2_cover"]
+
+[node name="Root" type="Node"]
+
+[node name="Main" type="Node2D" parent="."]
+script = ExtResource("1_main")
+
+[node name="UILayer" type="CanvasLayer" parent="Main"]
+layer = 1
+
+[node name="Cover" parent="Main/UILayer" instance=ExtResource("2_cover")]
+
+[node name="WorldRoot" type="Node2D" parent="Main"]
+
+[node name="DialogueLayer" type="CanvasLayer" parent="Main"]
+layer = 100

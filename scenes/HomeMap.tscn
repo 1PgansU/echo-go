@@ -1,0 +1,172 @@
+[gd_scene load_steps=8 format=3]
+
+[ext_resource type="Script" path="res://scripts/MapBase.gd" id="1_base"]
+[ext_resource type="Script" path="res://scripts/Portal.gd" id="2_portal"]
+[ext_resource type="Script" path="res://scripts/NPC.gd" id="3_npc"]
+[ext_resource type="Script" path="res://scripts/PixelSprite.gd" id="4_pix"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_interact"]
+size = Vector2(72, 72)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_portal"]
+size = Vector2(96, 80)
+
+[node name="HomeMap" type="Node2D"]
+script = ExtResource("1_base")
+map_id = "home"
+map_title = "🏠 家 · 客厅"
+background_path = "res://assets/sprites/home_tile_00.png"
+background_color = Color(0.957, 0.918, 0.851, 1)
+viewport_size = Vector2(1280, 720)
+
+[node name="ReturnToWorld" type="Area2D" parent="."]
+position = Vector2(1120, 605)
+script = ExtResource("2_portal")
+portal_id = "home_world_door"
+target_map_id = "world"
+return_portal_id = "world_home_door"
+label_text = "🚪 大门"
+
+[node name="Label" type="Label" parent="ReturnToWorld"]
+offset_left = -60.0
+offset_top = -90.0
+offset_right = 60.0
+offset_bottom = -66.0
+text = "🚪 大门"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 18
+theme_override_colors/font_color = Color(0.157, 0.094, 0.039, 1)
+theme_override_colors/font_outline_color = Color(0.992, 0.976, 0.929, 1)
+theme_override_constants/outline_size = 4
+
+[node name="Hint" type="Label" parent="ReturnToWorld"]
+offset_left = -50.0
+offset_top = -24.0
+offset_right = 50.0
+offset_bottom = -2.0
+text = "[E] 出门"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 14
+theme_override_colors/font_color = Color(0.722, 0.196, 0.196, 1)
+theme_override_colors/font_outline_color = Color(0.992, 0.976, 0.929, 1)
+theme_override_constants/outline_size = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ReturnToWorld"]
+shape = SubResource("RectangleShape2D_portal")
+
+[node name="NPC_Father" type="Area2D" parent="."]
+position = Vector2(640, 480)
+z_index = 2
+script = ExtResource("3_npc")
+npc_id = "father"
+npc_name = "👨 爸爸"
+scene_to_trigger = "day1_family_01"
+chat_mode = true
+
+[node name="PixelSprite" type="Node2D" parent="NPC_Father"]
+script = ExtResource("4_pix")
+
+[node name="NameLabel" type="Label" parent="NPC_Father"]
+offset_left = -60.0
+offset_top = -62.0
+offset_right = 60.0
+offset_bottom = -38.0
+text = "👨 爸爸"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 15
+theme_override_colors/font_color = Color(0.157, 0.094, 0.039, 1)
+theme_override_colors/font_outline_color = Color(0.992, 0.976, 0.929, 1)
+theme_override_constants/outline_size = 4
+
+[node name="Hint" type="Label" parent="NPC_Father"]
+offset_left = -40.0
+offset_top = 20.0
+offset_right = 40.0
+offset_bottom = 42.0
+text = "[E] 互动"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 13
+theme_override_colors/font_color = Color(0.722, 0.196, 0.196, 1)
+theme_override_colors/font_outline_color = Color(0.992, 0.976, 0.929, 1)
+theme_override_constants/outline_size = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC_Father"]
+shape = SubResource("RectangleShape2D_interact")
+
+[node name="NPC_Mother" type="Area2D" parent="."]
+position = Vector2(840, 480)
+z_index = 2
+script = ExtResource("3_npc")
+npc_id = "mother"
+npc_name = "👩 妈妈"
+scene_to_trigger = "day1_family_02"
+chat_mode = true
+
+[node name="PixelSprite" type="Node2D" parent="NPC_Mother"]
+script = ExtResource("4_pix")
+
+[node name="NameLabel" type="Label" parent="NPC_Mother"]
+offset_left = -60.0
+offset_top = -62.0
+offset_right = 60.0
+offset_bottom = -38.0
+text = "👩 妈妈"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 15
+theme_override_colors/font_color = Color(0.157, 0.094, 0.039, 1)
+theme_override_colors/font_outline_color = Color(0.992, 0.976, 0.929, 1)
+theme_override_constants/outline_size = 4
+
+[node name="Hint" type="Label" parent="NPC_Mother"]
+offset_left = -40.0
+offset_top = 20.0
+offset_right = 40.0
+offset_bottom = 42.0
+text = "[E] 互动"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 13
+theme_override_colors/font_color = Color(0.722, 0.196, 0.196, 1)
+theme_override_colors/font_outline_color = Color(0.992, 0.976, 0.929, 1)
+theme_override_constants/outline_size = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC_Mother"]
+shape = SubResource("RectangleShape2D_interact")
+
+[node name="NPC_Brother" type="Area2D" parent="."]
+position = Vector2(1040, 480)
+z_index = 2
+script = ExtResource("3_npc")
+npc_id = "brother"
+npc_name = "👦 弟弟"
+scene_to_trigger = "day2_family_02"
+chat_mode = true
+
+[node name="PixelSprite" type="Node2D" parent="NPC_Brother"]
+script = ExtResource("4_pix")
+
+[node name="NameLabel" type="Label" parent="NPC_Brother"]
+offset_left = -60.0
+offset_top = -62.0
+offset_right = 60.0
+offset_bottom = -38.0
+text = "👦 弟弟"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 15
+theme_override_colors/font_color = Color(0.157, 0.094, 0.039, 1)
+theme_override_colors/font_outline_color = Color(0.992, 0.976, 0.929, 1)
+theme_override_constants/outline_size = 4
+
+[node name="Hint" type="Label" parent="NPC_Brother"]
+offset_left = -40.0
+offset_top = 20.0
+offset_right = 40.0
+offset_bottom = 42.0
+text = "[E] 互动"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 13
+theme_override_colors/font_color = Color(0.722, 0.196, 0.196, 1)
+theme_override_colors/font_outline_color = Color(0.992, 0.976, 0.929, 1)
+theme_override_constants/outline_size = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC_Brother"]
+shape = SubResource("RectangleShape2D_interact")

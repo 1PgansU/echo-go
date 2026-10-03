@@ -1,0 +1,101 @@
+[gd_scene load_steps=11 format=3 uid="uid://b1coverstart001"]
+
+[ext_resource type="Script" path="res://scripts/cover/CoverStart.gd" id="1_cs"]
+[ext_resource type="Texture2D" uid="uid://c15ik40s5ihyg" path="res://assets/cover_start/island.png" id="2_island"]
+[ext_resource type="Texture2D" uid="uid://dmn4rk0gjy7px" path="res://assets/cover_start/cloud_03.png" id="3_c03"]
+[ext_resource type="Texture2D" uid="uid://dk43qg4lee42e" path="res://assets/cover_start/title.png" id="3_title"]
+[ext_resource type="Texture2D" uid="uid://ch57xqnywi083" path="res://assets/cover_start/continue.png" id="4_continue"]
+[ext_resource type="Texture2D" uid="uid://dra6yyqdegw8j" path="res://assets/cover_start/cloud_05.png" id="4_c05"]
+[ext_resource type="Texture2D" uid="uid://bvkxdgmtw3pin" path="res://assets/cover_start/restart.png" id="5_restart"]
+[ext_resource type="Texture2D" uid="uid://b6o3v3sfqvb3c" path="res://assets/cover_start/cloud_01.png" id="8_c01"]
+[ext_resource type="Texture2D" uid="uid://b6qe181uudwcw" path="res://assets/cover_start/cloud_04.png" id="9_c04"]
+
+[node name="CoverStart" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cs")
+
+[node name="Sky" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.59607846, 0.8862745, 0.8862745, 0.94509804)
+
+[node name="Island" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -54.0
+offset_top = 93.0
+offset_right = 834.0
+offset_bottom = 663.0
+texture = ExtResource("2_island")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Cloud03" type="Sprite2D" parent="Island"]
+position = Vector2(311.75, 353)
+scale = Vector2(0.79045653, 0.9423075)
+texture = ExtResource("3_c03")
+
+[node name="Cloud05" type="Sprite2D" parent="Island"]
+position = Vector2(199.0, 56)
+scale = Vector2(0.6678083, 0.7627549)
+texture = ExtResource("4_c05")
+
+[node name="Title" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 328.0
+offset_top = 115.0
+offset_right = 1288.0
+offset_bottom = 249.0
+mouse_filter = 2
+texture = ExtResource("3_title")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Continue" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 574.0
+offset_top = 322.0
+offset_right = 1144.0
+offset_bottom = 427.0
+texture_normal = ExtResource("4_continue")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Restart" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 555.0
+offset_top = 453.0
+offset_right = 1167.0
+offset_bottom = 561.0
+texture_normal = ExtResource("5_restart")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Note" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1040.0
+offset_top = 680.0
+offset_right = 1260.0
+offset_bottom = 710.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+
+[node name="Cloud01" type="Sprite2D" parent="."]
+position = Vector2(652.0, 351)
+scale = Vector2(0.34969318, 0.41081846)
+texture = ExtResource("8_c01")
+
+[node name="Cloud04" type="Sprite2D" parent="."]
+position = Vector2(200, 212)
+texture = ExtResource("9_c04")
+
+[node name="Cloud05" type="Sprite2D" parent="."]
+position = Vector2(501, 431)
+texture = ExtResource("4_c05")

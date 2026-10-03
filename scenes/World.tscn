@@ -1,0 +1,137 @@
+[gd_scene load_steps=10 format=3]
+
+[ext_resource type="Script" path="res://scripts/MapBase.gd" id="1_base"]
+[ext_resource type="Script" path="res://scripts/Portal.gd" id="2_portal"]
+[ext_resource type="Script" path="res://scripts/NPC.gd" id="3_npc"]
+[ext_resource type="Script" path="res://scripts/PixelSprite.gd" id="4_pix"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_interact"]
+size = Vector2(72, 72)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_portal"]
+size = Vector2(96, 80)
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_base")
+map_id = "world"
+map_title = "回响 · 入口"
+background_path = "res://assets/sprites/world_tile_00.png"
+background_color = Color(0.957, 0.918, 0.851, 1)
+viewport_size = Vector2(1280, 720)
+pixel_scale = 1.0
+pixel_art = true
+fit_to_viewport = true
+map_size_mode = 0
+
+[node name="PortalToHome" type="Area2D" parent="."]
+position = Vector2(380, 660)
+script = ExtResource("2_portal")
+portal_id = "world_home_door"
+target_map_id = "home"
+return_portal_id = "home_world_door"
+label_text = "🏠 家"
+draw_door = false
+
+[node name="Label" type="Label" parent="PortalToHome"]
+offset_left = -60.0
+offset_top = -130.0
+offset_right = 60.0
+offset_bottom = -106.0
+text = "🏠 家"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 18
+theme_override_colors/font_color = Color(0.157, 0.094, 0.039, 1)
+theme_override_colors/font_outline_color = Color(0.992, 0.976, 0.929, 1)
+theme_override_constants/outline_size = 4
+
+[node name="Hint" type="Label" parent="PortalToHome"]
+offset_left = -50.0
+offset_top = 28.0
+offset_right = 50.0
+offset_bottom = 50.0
+text = "[E] 进入"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 14
+theme_override_colors/font_color = Color(0.722, 0.196, 0.196, 1)
+theme_override_colors/font_outline_color = Color(0.992, 0.976, 0.929, 1)
+theme_override_constants/outline_size = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PortalToHome"]
+shape = SubResource("RectangleShape2D_portal")
+
+[node name="PortalToClass" type="Area2D" parent="."]
+position = Vector2(740, 140)
+script = ExtResource("2_portal")
+portal_id = "world_class_door"
+target_map_id = "class"
+return_portal_id = "class_world_door"
+label_text = "🏫 教室"
+draw_door = false
+
+[node name="Label" type="Label" parent="PortalToClass"]
+offset_left = -60.0
+offset_top = -130.0
+offset_right = 60.0
+offset_bottom = -106.0
+text = "🏫 教室"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 18
+theme_override_colors/font_color = Color(0.157, 0.094, 0.039, 1)
+theme_override_colors/font_outline_color = Color(0.992, 0.976, 0.929, 1)
+theme_override_constants/outline_size = 4
+
+[node name="Hint" type="Label" parent="PortalToClass"]
+offset_left = -50.0
+offset_top = 28.0
+offset_right = 50.0
+offset_bottom = 50.0
+text = "[E] 进入"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 14
+theme_override_colors/font_color = Color(0.722, 0.196, 0.196, 1)
+theme_override_colors/font_outline_color = Color(0.992, 0.976, 0.929, 1)
+theme_override_constants/outline_size = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PortalToClass"]
+shape = SubResource("RectangleShape2D_portal")
+
+[node name="NPC_Xiaoyang" type="Area2D" parent="."]
+position = Vector2(900, 600)
+z_index = 2
+script = ExtResource("3_npc")
+npc_id = "xiaoyang"
+npc_name = "🐑 小羊"
+chat_mode = true
+can_wander = true
+wander_radius = 80.0
+wander_speed = 50.0
+
+[node name="PixelSprite" type="Node2D" parent="NPC_Xiaoyang"]
+script = ExtResource("4_pix")
+
+[node name="NameLabel" type="Label" parent="NPC_Xiaoyang"]
+offset_left = -60.0
+offset_top = -62.0
+offset_right = 60.0
+offset_bottom = -38.0
+text = "🐑 小羊"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 15
+theme_override_colors/font_color = Color(0.157, 0.094, 0.039, 1)
+theme_override_colors/font_outline_color = Color(0.992, 0.976, 0.929, 1)
+theme_override_constants/outline_size = 4
+
+[node name="Hint" type="Label" parent="NPC_Xiaoyang"]
+offset_left = -40.0
+offset_top = 20.0
+offset_right = 40.0
+offset_bottom = 42.0
+text = "[E] 互动"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 13
+theme_override_colors/font_color = Color(0.722, 0.196, 0.196, 1)
+theme_override_colors/font_outline_color = Color(0.992, 0.976, 0.929, 1)
+theme_override_constants/outline_size = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC_Xiaoyang"]
+shape = SubResource("RectangleShape2D_interact")

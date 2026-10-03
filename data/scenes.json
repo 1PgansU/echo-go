@@ -1,0 +1,338 @@
+{
+  "day1_family_01": {
+    "id": "day1_family_01",
+    "day": 1,
+    "category": "family",
+    "title": "客厅里的审判",
+    "background": "傍晚，你攥着 78 分的数学卷子推开门。客厅的灯很亮，妈妈坐在沙发上织毛衣，爸爸在看新闻联播。空气里飘着红烧肉的香气，但你的胃突然缩紧了。",
+    "icon": "🏠",
+    "dialogues": [
+      { "who": "爸爸", "text": "78 分？你看楼上小李又考了 95！", "mood": "angry" },
+      { "who": "妈妈", "text": "就是，一天到晚不知道在学什么。你这孩子，将来能有什么出息？", "mood": "disappointed" },
+      { "who": "你", "text": "……", "mood": "silent", "is_self": true }
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "直接顶嘴",
+        "text": "你们怎么不看看人家小李他爸是大学老师！",
+        "personality_delta": { "confidence": 2, "family_bond": -2, "expression": 1 },
+        "inner_voice": "凭什么每次都是我的错，你们从来不想想自己的问题……",
+        "echo_card": "在比较型家庭里长大的孩子，成年后容易形成两种极端：要么极度在意他人评价，要么彻底摆烂式反抗。沉默从来不是真正的解决，它只是把冲突延后了——而顶嘴，往往只是为了让自己被看见。"
+      },
+      {
+        "id": "B",
+        "label": "沉默走开",
+        "text": "……（默默回房间，把门关上）",
+        "personality_delta": { "confidence": -1, "resilience": 1, "sensitivity": 1 },
+        "inner_voice": "说什么都没用。反正他们从来不听……",
+        "echo_card": "关门是孩子最早学会的自我保护。它保护了当下的你，但代价是：把和父母沟通的所有通道都关上了。多年后你会发现——你不是在保护自己，是在放弃被理解的可能。"
+      },
+      {
+        "id": "C",
+        "label": "解释",
+        "text": "这次题目特别难……全班都不及格的……",
+        "personality_delta": { "expression": 1, "confidence": -1, "study_drive": -1 },
+        "inner_voice": "也许……真的是我不够努力？",
+        "echo_card": "解释型孩子最让人心疼。他们已经把父母的不满内化成了自己的问题。成年后，他们往往是办公室里最会道歉、最不敢拒绝别人、最容易过度付出的人。"
+      },
+      {
+        "id": "D",
+        "label": "转移话题",
+        "text": "妈，今天红烧肉啊？好香啊……",
+        "personality_delta": { "sensitivity": 1, "social": 1, "family_bond": 1 },
+        "inner_voice": "也许他们只是今天心情不好……别惹他们了。",
+        "echo_card": "懂事的孩子，往往是家里最早学会看脸色的人。他们看起来很会处理关系，但代价是：长期压抑真实感受，习惯性讨好，最终活成了别人期待的样子，而不是自己。"
+      }
+    ]
+  },
+
+  "day1_family_02": {
+    "id": "day1_family_02",
+    "day": 1,
+    "category": "family",
+    "title": "厨房里的叹息",
+    "background": "你推开门的时候，妈妈正独自在厨房收拾碗碟。客厅传来爸爸看手机短视频的笑声，妈妈只是淡淡地回头看了你一眼。灯光有点昏黄，她的眼圈有点红。",
+    "icon": "👩",
+    "dialogues": [
+      { "who": "妈妈", "text": "回来啦？饭在锅里温着，自己盛啊。", "mood": "tired" },
+      { "who": "妈妈", "text": "妈妈今天……有点累。你先别跟你爸说啊。", "mood": "soft" },
+      { "who": "你", "text": "……", "mood": "silent", "is_self": true }
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "主动帮忙",
+        "text": "妈我来洗吧，您坐下歇会儿。",
+        "personality_delta": { "family_bond": 2, "sensitivity": 1, "social": 1 },
+        "inner_voice": "妈妈看起来真的不开心……我能做点什么呢。",
+        "echo_card": "你看见了妈妈的疲惫，而不只是她作为母亲的角色。很多孩子在成长后才意识到：父母也是普通人，他们也会累、会委屈、会在深夜独自叹气。"
+      },
+      {
+        "id": "B",
+        "label": "追问原因",
+        "text": "妈，您怎么了？是不是爸爸又惹您生气了？",
+        "personality_delta": { "expression": 1, "family_bond": 1, "sensitivity": 1 },
+        "inner_voice": "我想知道是怎么回事……",
+        "echo_card": "关心大人的事，会让你过早地承担不属于你的情绪重量。但它也让你比别人更早学会共情——这种能力，是很多成年人一辈子都学不会的。"
+      },
+      {
+        "id": "C",
+        "label": "装作没看见",
+        "text": "嗯好，我先回房间写作业了。",
+        "personality_delta": { "independence": 1, "sensitivity": -1, "family_bond": -1 },
+        "inner_voice": "大人的事，跟我有什么关系……",
+        "echo_card": "回避不是冷漠，是自我保护。但请记得，妈妈也是需要被看见的人——哪怕只是一句你还好吗。"
+      },
+      {
+        "id": "D",
+        "label": "调皮撒娇",
+        "text": "妈~ 我饿了，您陪我一起吃好不好？",
+        "personality_delta": { "family_bond": 2, "expression": 1, "sensitivity": 1 },
+        "inner_voice": "也许妈妈只是想要有人陪她说说话。",
+        "echo_card": "撒娇不是软弱，是一种高级的亲密能力。成年后你会发现，能在爱的人面前放下防备，是非常稀缺的天赋。"
+      }
+    ]
+  },
+
+  "day1_school_01": {
+    "id": "day1_school_01",
+    "day": 1,
+    "category": "school",
+    "title": "走廊里的笑声",
+    "background": "课间，你刚走进走廊，几个男同学突然哄笑起来。",
+    "icon": "🏫",
+    "dialogues": [
+      { "who": "同学甲", "text": "哟，四眼田鸡来了！", "mood": "mock" },
+      { "who": "同学乙", "text": "听说他爸妈都是工人，难怪土得掉渣！", "mood": "mock" },
+      { "who": "你", "text": "……", "mood": "silent", "is_self": true }
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "正面回击",
+        "text": "关你们什么事？父母干什么碍着你们了？",
+        "personality_delta": { "confidence": 2, "expression": 1, "social": -1 },
+        "inner_voice": "凭什么我要被你们这样侮辱？",
+        "echo_card": "你选择不当沉默的羔羊。但回击的代价，往往是被群体更孤立。除非你足够强大，否则反抗会成为他们下一轮攻击的理由。"
+      },
+      {
+        "id": "B",
+        "label": "无视走开",
+        "text": "（假装没听见，低头快步走过）",
+        "personality_delta": { "resilience": 1, "sensitivity": 1, "confidence": -1 },
+        "inner_voice": "忍一忍就过去了……反正也习惯了……",
+        "echo_card": "无视是一种成熟的应对方式——但对一个孩子来说，它更像是一种过早的情感隔离。成年后你会发现：那些当年没回击的侮辱，都变成了你对自己的怀疑。"
+      },
+      {
+        "id": "C",
+        "label": "找老师",
+        "text": "（下课后去办公室找班主任反映）",
+        "personality_delta": { "expression": 1, "social": 1, "independence": -1 },
+        "inner_voice": "老师应该会管的吧……应该会的……",
+        "echo_card": "找权威是孩子最本能的求救信号。但很多老师的回应是为什么他们不欺负别人只欺负你。这句话的潜台词是：错在你。这比欺负本身更伤人。"
+      },
+      {
+        "id": "D",
+        "label": "自我反思",
+        "text": "……是不是我真的有什么问题？",
+        "personality_delta": { "confidence": -2, "sensitivity": 2, "family_bond": -1 },
+        "inner_voice": "也许……真的是我太不合群了？",
+        "echo_card": "这是最危险的反应——内归因。被欺负者常常会相信是因为我不好，所以才被欺负。这种信念如果不被打破，会跟随一个人很多年。"
+      }
+    ]
+  },
+
+  "day2_family_02": {
+    "id": "day2_family_02",
+    "day": 2,
+    "category": "family",
+    "title": "弟弟的生日",
+    "background": "今天是弟弟的十岁生日，家里来了很多亲戚。妈妈抱着弟弟，给每个亲戚介绍：这是我儿子，聪明得很！你站在角落里，端着一块没人注意到的蛋糕。",
+    "icon": "🎂",
+    "dialogues": [
+      { "who": "亲戚", "text": "大女儿呢？哦，在那边啊。姑娘懂事啊，让着弟弟。", "mood": "polite" },
+      { "who": "妈妈", "text": "姐姐嘛，以后要帮衬弟弟的，这是本分。", "mood": "matter-of-fact" },
+      { "who": "你", "text": "……", "mood": "silent", "is_self": true }
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "抗议",
+        "text": "凭什么要让着他？我也是你们的孩子啊！",
+        "personality_delta": { "confidence": 2, "family_bond": -3, "expression": 1 },
+        "inner_voice": "为什么从来没人问问我想要什么？",
+        "echo_card": "重男轻女或偏爱一个对另一个孩子的伤害，往往持续一生。被忽视的孩子成年后要么过度补偿（疯狂讨好），要么彻底放弃亲情联结。"
+      },
+      {
+        "id": "B",
+        "label": "默默接受",
+        "text": "……嗯，弟弟还小。",
+        "personality_delta": { "resilience": 1, "family_bond": -1, "expression": -1 },
+        "inner_voice": "反正他们也不在乎我怎么想……",
+        "echo_card": "你学会了懂事——但懂事是有价格的。它让你在亲密关系里习惯性退让，在职场里不敢争取应得的利益。懂事的孩子，长大后最不被人心疼。"
+      },
+      {
+        "id": "C",
+        "label": "回房间",
+        "text": "（放下蛋糕，回房间听音乐）",
+        "personality_delta": { "independence": 2, "sensitivity": 1, "family_bond": -2 },
+        "inner_voice": "我懒得看这场戏了……",
+        "echo_card": "逃离是另一种自我保护。你学会了在自己和让人失望的家庭之间建一堵墙。但墙也是双刃剑——它挡住了伤害，也挡住了温暖。"
+      },
+      {
+        "id": "D",
+        "label": "努力表现",
+        "text": "妈妈，我这次考了班级前十名……",
+        "personality_delta": { "expression": 1, "study_drive": 2, "confidence": -1 },
+        "inner_voice": "如果我再优秀一点，他们是不是就能看见我了？",
+        "echo_card": "这是最让人心酸的选项——通过成就来赢得爱。很多别人家的孩子长大后都活在一种隐秘的恐惧里：一旦我不够优秀，就不配被爱。"
+      }
+    ]
+  },
+
+  "day2_school_02": {
+    "id": "day2_school_02",
+    "day": 2,
+    "category": "school",
+    "title": "文理分科表",
+    "background": "高三，班主任发下文理分科表。妈妈连夜打电话：学文科没出息，必须选理科。爸爸沉默着，但他的眼神你懂。",
+    "icon": "📋",
+    "dialogues": [
+      { "who": "妈妈", "text": "学文科将来找不到工作，你是想饿死吗？", "mood": "controlling" },
+      { "who": "爸爸", "text": "……（在电话那头抽烟，没说话）", "mood": "silent" },
+      { "who": "班主任", "text": "老师觉得你的文科天赋更好，但最终还是要看你们自己的选择。", "mood": "neutral" },
+      { "who": "你", "text": "我到底想学什么……", "mood": "confused", "is_self": true }
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "遵从父母",
+        "text": "……好吧，我选理科。",
+        "personality_delta": { "family_bond": 1, "independence": -3, "study_drive": -2 },
+        "inner_voice": "反正我的人生也不是我的……",
+        "echo_card": "很多中国孩子的人生重大选择，是父母替他们做的。这不是孝顺，这是自我被外包。你的人生方向，从这一刻开始，就不完全是你的了。"
+      },
+      {
+        "id": "B",
+        "label": "遵从内心",
+        "text": "不，我要选文科。我喜欢的是写作和历史。",
+        "personality_delta": { "independence": 2, "family_bond": -2, "confidence": 1 },
+        "inner_voice": "这是我的人生，我至少要有一次自己做主。",
+        "echo_card": "恭喜你做了自己的选择——但你也要准备好承担代价。父母可能会冷落你一段时间，甚至多年后仍会念叨当初不听我们的。但你的自我，从这一刻开始生长。"
+      },
+      {
+        "id": "C",
+        "label": "求和",
+        "text": "妈，我们能不能坐下来好好谈谈？",
+        "personality_delta": { "expression": 2, "family_bond": 1, "confidence": 1 },
+        "inner_voice": "也许我们可以找到一个都满意的方式……",
+        "echo_card": "谈判是最成熟的方式，但也是最稀有的。因为这需要双方都愿意听对方说话。如果你的父母不愿意谈——记住，这也不是你的错。"
+      },
+      {
+        "id": "D",
+        "label": "拖延",
+        "text": "我再想想……",
+        "personality_delta": { "sensitivity": 1, "confidence": -1, "independence": -1 },
+        "inner_voice": "我真的不知道……我害怕选错……",
+        "echo_card": "拖延不是逃避，是你还没学会为选择负责。但别担心——有些事，拖延也是一种回答：也许你心里已经知道答案了。"
+      }
+    ]
+  },
+
+  "day3_love_01": {
+    "id": "day3_love_01",
+    "day": 3,
+    "category": "love",
+    "title": "那张纸条",
+    "background": "高二下学期，你喜欢了同班的一个女生整整一年。今天，你终于鼓起勇气递出了一张纸条，约她去操场看日落。傍晚的风很温柔。",
+    "icon": "💌",
+    "dialogues": [
+      { "who": "TA", "text": "……谢谢，但是，我现在不想谈恋爱。", "mood": "gentle" },
+      { "who": "TA", "text": "而且我觉得，我们可以先做好朋友。", "mood": "polite" },
+      { "who": "你", "text": "……", "mood": "silent", "is_self": true }
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "潇洒放下",
+        "text": "嗯嗯好的，那我们以后还是朋友！",
+        "personality_delta": { "resilience": 2, "independence": 2, "confidence": 1 },
+        "inner_voice": "没什么大不了的……对吧？",
+        "echo_card": "成年人的放手往往是这样轻松地说一句没关系。但你心里知道，那个操场的傍晚、那张纸条的温度，是你这辈子都不会忘记的。没关系——把它放在心底某个角落就好。"
+      },
+      {
+        "id": "B",
+        "label": "追问原因",
+        "text": "为什么？是不是我哪里不好？",
+        "personality_delta": { "sensitivity": 2, "confidence": -2, "expression": 1 },
+        "inner_voice": "一定是我的问题……",
+        "echo_card": "被拒绝很容易让人启动自我怀疑模式。但请记住：拒绝，常常和你不够好无关，而和时机不对 / 类型不同 / 对方也在害怕有关。你值得被喜欢，只是未必是这个人。"
+      },
+      {
+        "id": "C",
+        "label": "躲起来",
+        "text": "……我先走了。",
+        "personality_delta": { "sensitivity": 1, "confidence": -1, "resilience": -1 },
+        "inner_voice": "我再也不想见到 TA 了……",
+        "echo_card": "逃走是面对脆弱时最本能的反应。但你逃不掉的是——你还会喜欢 TA 很久。允许自己难过一段时间吧，不必强行赶快好起来。"
+      },
+      {
+        "id": "D",
+        "label": "继续坚持",
+        "text": "我可以等。等你准备好。",
+        "personality_delta": { "confidence": 2, "sensitivity": 2, "expression": 1 },
+        "inner_voice": "我真的很喜欢 TA，我可以的……",
+        "echo_card": "坚持有时候是一种勇敢，但有时候是一种纠缠。区别在于：对方有没有给你等待的可能。如果 TA 明确拒绝过，你的等待就是对自己的消耗。"
+      }
+    ]
+  },
+
+  "day3_love_02": {
+    "id": "day3_love_02",
+    "day": 3,
+    "category": "love",
+    "title": "TA 的关心",
+    "background": "你和 TA 在一起三个月了。TA 经常查你手机、要求你报备行踪、说我是为你好。今天 TA 又因为你和异性同学说话发了脾气。",
+    "icon": "💔",
+    "dialogues": [
+      { "who": "TA", "text": "你为什么和那个人说话？我不是说过让你少和他们来往吗？", "mood": "controlling" },
+      { "who": "TA", "text": "你不爱我。你如果爱我，你就会改。", "mood": "accusing" },
+      { "who": "你", "text": "……", "mood": "confused", "is_self": true }
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "服从",
+        "text": "……好，我错了。我以后不和他们说话了。",
+        "personality_delta": { "confidence": -2, "social": -2, "family_bond": -1 },
+        "inner_voice": "只要 TA 不生气就好……",
+        "echo_card": "爱不应该让你失去所有朋友。如果一段关系让你孤立自己、怀疑自己、害怕对方——这不是爱，这是控制。请相信自己的直觉。"
+      },
+      {
+        "id": "B",
+        "label": "反驳",
+        "text": "你没有权利要求我断绝所有朋友关系！",
+        "personality_delta": { "confidence": 2, "expression": 2, "sensitivity": 1 },
+        "inner_voice": "我不该被这样对待……",
+        "echo_card": "你开始有自我了。这很好。但要小心——对方可能会变本加厉，或者反过来更委屈地说我是因为太爱你了。请记住：爱不是控制。"
+      },
+      {
+        "id": "C",
+        "label": "怀疑自己",
+        "text": "是不是我真的做错了什么……",
+        "personality_delta": { "confidence": -2, "sensitivity": 2, "expression": -1 },
+        "inner_voice": "是我不够好吧……",
+        "echo_card": "煤气灯操纵就是这样让你怀疑自己的。TA 让你相信：错的是你，正常的也是你。这种关系会摧毁你的自尊。"
+      },
+      {
+        "id": "D",
+        "label": "结束",
+        "text": "我觉得我们不合适，分手吧。",
+        "personality_delta": { "confidence": 2, "independence": 3, "resilience": 1 },
+        "inner_voice": "我不能再这样下去了。",
+        "echo_card": "分手永远不嫌早。当你在一段关系里不再像自己——那一瞬间，就该离开了。痛苦是暂时的，但失去自我，是永远的。"
+      }
+    ]
+  }
+}

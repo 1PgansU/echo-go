@@ -1,0 +1,181 @@
+[gd_scene load_steps=8 format=3]
+
+[ext_resource type="Script" path="res://scripts/ChatDialogue.gd" id="1_chat"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+bg_color = Color(0.13, 0.08, 0.05, 0.98)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.957, 0.886, 0.737, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+content_margin_left = 0
+content_margin_top = 0
+content_margin_right = 0
+content_margin_bottom = 0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_input"]
+bg_color = Color(0.96, 0.93, 0.86, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.957, 0.886, 0.737, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+content_margin_left = 14
+content_margin_top = 10
+content_margin_right = 14
+content_margin_bottom = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_send"]
+bg_color = Color(0.788, 0.482, 0.388, 1)
+border_width_left = 0
+border_width_top = 0
+border_width_right = 0
+border_width_bottom = 0
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+content_margin_left = 24
+content_margin_top = 12
+content_margin_right = 24
+content_margin_bottom = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_send_hover"]
+bg_color = Color(0.98, 0.65, 0.5, 1)
+border_width_left = 0
+border_width_top = 0
+border_width_right = 0
+border_width_bottom = 0
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+content_margin_left = 24
+content_margin_top = 12
+content_margin_right = 24
+content_margin_bottom = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_close"]
+bg_color = Color(0.4, 0.18, 0.13, 1)
+border_width_left = 0
+border_width_top = 0
+border_width_right = 0
+border_width_bottom = 0
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+content_margin_left = 20
+content_margin_top = 10
+content_margin_right = 20
+content_margin_bottom = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_header"]
+font_size = 28
+font_color = Color(0.98, 0.82, 0.5, 1)
+
+[node name="ChatDialogue" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+script = ExtResource("1_chat")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color(0, 0, 0, 0.55)
+
+[node name="ChatPanel" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -520.0
+offset_top = -340.0
+offset_right = 520.0
+offset_bottom = 340.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="VBox" type="VBoxContainer" parent="ChatPanel"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Header" type="HBoxContainer" parent="ChatPanel/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="HeaderLabel" type="Label" parent="ChatPanel/VBox/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "💬 与 NPC 聊天"
+label_settings = SubResource("LabelSettings_header")
+vertical_alignment = 1
+
+[node name="CloseButton" type="Button" parent="ChatPanel/VBox/Header"]
+custom_minimum_size = Vector2(80, 40)
+layout_mode = 2
+text = "✕ 关闭"
+theme_override_font_sizes/font_size = 16
+theme_override_colors/font_color = Color(0.98, 0.93, 0.85, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_close")
+theme_override_styles/hover = SubResource("StyleBoxFlat_close")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_close")
+
+[node name="Scroll" type="ScrollContainer" parent="ChatPanel/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MessageList" type="VBoxContainer" parent="ChatPanel/VBox/Scroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+
+[node name="InputRow" type="HBoxContainer" parent="ChatPanel/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="InputBox" type="LineEdit" parent="ChatPanel/VBox/InputRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(0, 50)
+placeholder_text = "输入消息…（Enter 发送）"
+theme_override_font_sizes/font_size = 20
+theme_override_colors/font_color = Color(0.15, 0.1, 0.06, 1)
+theme_override_colors/font_placeholder_color = Color(0.5, 0.4, 0.3, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_input")
+theme_override_styles/focus = SubResource("StyleBoxFlat_input")
+
+[node name="SendButton" type="Button" parent="ChatPanel/VBox/InputRow"]
+custom_minimum_size = Vector2(120, 50)
+layout_mode = 2
+text = "发送 ➤"
+theme_override_font_sizes/font_size = 20
+theme_override_colors/font_color = Color(0.98, 0.93, 0.85, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_send")
+theme_override_styles/hover = SubResource("StyleBoxFlat_send_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_send_hover")
+
+[node name="StatusLabel" type="Label" parent="ChatPanel/VBox"]
+layout_mode = 2
+text = "（未接入 LLM，使用本地模拟回复）"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 12
+theme_override_colors/font_color = Color(0.6, 0.55, 0.45, 1)

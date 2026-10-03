@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/WorldUI.gd" id="1_ui"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_topbar"]
+bg_color = Color(0.239, 0.157, 0.09, 0.85)
+corner_radius_top_left = 0
+corner_radius_top_right = 0
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+content_margin_left = 20.0
+content_margin_top = 8.0
+content_margin_right = 20.0
+content_margin_bottom = 8.0
+
+[node name="WorldUI" type="CanvasLayer"]
+layer = 50
+script = ExtResource("1_ui")
+
+[node name="HintLabel" type="Label" parent="."]
+offset_left = 380.0
+offset_top = 680.0
+offset_right = 900.0
+offset_bottom = 712.0
+mouse_filter = 2
+text = "WASD 移动 · 走近后按 [E] 互动"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 18
+theme_override_colors/font_color = Color(0.157, 0.094, 0.039, 1)
+theme_override_colors/font_outline_color = Color(0.992, 0.976, 0.929, 1)
+theme_override_constants/outline_size = 4

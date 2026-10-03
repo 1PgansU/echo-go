@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/Player.gd" id="1_player"]
+[ext_resource type="Script" path="res://scripts/PixelSprite.gd" id="2_pix"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_player"]
+size = Vector2(28, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_interact"]
+size = Vector2(72, 72)
+
+[node name="Player" type="CharacterBody2D"]
+z_index = 2
+script = ExtResource("1_player")
+
+[node name="PixelSprite" type="Node2D" parent="."]
+script = ExtResource("2_pix")
+
+[node name="DirectionIndicator" type="Polygon2D" parent="."]
+color = Color(0.957, 0.886, 0.737, 1)
+polygon = PackedVector2Array(0, -8, 6, 4, -6, 4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_player")
+
+[node name="InteractionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("RectangleShape2D_interact")

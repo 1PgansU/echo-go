@@ -1,0 +1,252 @@
+[gd_scene load_steps=10 format=3]
+
+[ext_resource type="Script" path="res://scripts/MapBase.gd" id="1_base"]
+[ext_resource type="Script" path="res://scripts/Portal.gd" id="2_portal"]
+[ext_resource type="Script" path="res://scripts/NPC.gd" id="3_npc"]
+[ext_resource type="Script" path="res://scripts/PixelSprite.gd" id="4_pix"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_interact"]
+size = Vector2(72, 72)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_portal"]
+size = Vector2(96, 80)
+
+[node name="ClassroomMap" type="Node2D"]
+script = ExtResource("1_base")
+map_id = "class"
+map_title = "🏫 教室 · 高中三年"
+background_path = "res://assets/sprites/jiaoshi_tile_00.png"
+background_color = Color(0.957, 0.918, 0.851, 1)
+viewport_size = Vector2(1280, 720)
+
+[node name="ReturnToWorld" type="Area2D" parent="."]
+position = Vector2(1064, 380)
+script = ExtResource("2_portal")
+portal_id = "class_world_door"
+target_map_id = "world"
+return_portal_id = "world_class_door"
+label_text = "🚪 出门"
+
+[node name="Label" type="Label" parent="ReturnToWorld"]
+offset_left = -60.0
+offset_top = -90.0
+offset_right = 60.0
+offset_bottom = -66.0
+text = "🚪 出门"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 18
+theme_override_colors/font_color = Color(0.157, 0.094, 0.039, 1)
+theme_override_colors/font_outline_color = Color(0.992, 0.976, 0.929, 1)
+theme_override_constants/outline_size = 4
+
+[node name="Hint" type="Label" parent="ReturnToWorld"]
+offset_left = -50.0
+offset_top = -24.0
+offset_right = 50.0
+offset_bottom = -2.0
+text = "[E] 出门"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 14
+theme_override_colors/font_color = Color(0.722, 0.196, 0.196, 1)
+theme_override_colors/font_outline_color = Color(0.992, 0.976, 0.929, 1)
+theme_override_constants/outline_size = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ReturnToWorld"]
+shape = SubResource("RectangleShape2D_portal")
+
+[node name="NPC_Classmate" type="Area2D" parent="."]
+position = Vector2(430, 540)
+z_index = 2
+script = ExtResource("3_npc")
+npc_id = "classmate"
+npc_name = "👦 同学"
+scene_to_trigger = "day1_school_01"
+chat_mode = true
+
+[node name="PixelSprite" type="Node2D" parent="NPC_Classmate"]
+script = ExtResource("4_pix")
+
+[node name="NameLabel" type="Label" parent="NPC_Classmate"]
+offset_left = -60.0
+offset_top = -62.0
+offset_right = 60.0
+offset_bottom = -38.0
+text = "👦 同学"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 15
+theme_override_colors/font_color = Color(0.157, 0.094, 0.039, 1)
+theme_override_colors/font_outline_color = Color(0.992, 0.976, 0.929, 1)
+theme_override_constants/outline_size = 4
+
+[node name="Hint" type="Label" parent="NPC_Classmate"]
+offset_left = -40.0
+offset_top = 20.0
+offset_right = 40.0
+offset_bottom = 42.0
+text = "[E] 互动"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 13
+theme_override_colors/font_color = Color(0.722, 0.196, 0.196, 1)
+theme_override_colors/font_outline_color = Color(0.992, 0.976, 0.929, 1)
+theme_override_constants/outline_size = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC_Classmate"]
+shape = SubResource("RectangleShape2D_interact")
+
+[node name="NPC_Teacher" type="Area2D" parent="."]
+position = Vector2(620, 540)
+z_index = 2
+script = ExtResource("3_npc")
+npc_id = "teacher"
+npc_name = "👨‍🏫 班主任"
+scene_to_trigger = "day2_school_02"
+chat_mode = true
+
+[node name="PixelSprite" type="Node2D" parent="NPC_Teacher"]
+script = ExtResource("4_pix")
+
+[node name="NameLabel" type="Label" parent="NPC_Teacher"]
+offset_left = -60.0
+offset_top = -62.0
+offset_right = 60.0
+offset_bottom = -38.0
+text = "👨‍🏫 班主任"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 15
+theme_override_colors/font_color = Color(0.157, 0.094, 0.039, 1)
+theme_override_colors/font_outline_color = Color(0.992, 0.976, 0.929, 1)
+theme_override_constants/outline_size = 4
+
+[node name="Hint" type="Label" parent="NPC_Teacher"]
+offset_left = -40.0
+offset_top = 20.0
+offset_right = 40.0
+offset_bottom = 42.0
+text = "[E] 互动"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 13
+theme_override_colors/font_color = Color(0.722, 0.196, 0.196, 1)
+theme_override_colors/font_outline_color = Color(0.992, 0.976, 0.929, 1)
+theme_override_constants/outline_size = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC_Teacher"]
+shape = SubResource("RectangleShape2D_interact")
+
+[node name="NPC_Crush" type="Area2D" parent="."]
+position = Vector2(820, 540)
+z_index = 2
+script = ExtResource("3_npc")
+npc_id = "crush"
+npc_name = "💝 TA"
+scene_to_trigger = "day3_love_01"
+chat_mode = true
+
+[node name="PixelSprite" type="Node2D" parent="NPC_Crush"]
+script = ExtResource("4_pix")
+
+[node name="NameLabel" type="Label" parent="NPC_Crush"]
+offset_left = -60.0
+offset_top = -62.0
+offset_right = 60.0
+offset_bottom = -38.0
+text = "💝 TA"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 15
+theme_override_colors/font_color = Color(0.157, 0.094, 0.039, 1)
+theme_override_colors/font_outline_color = Color(0.992, 0.976, 0.929, 1)
+theme_override_constants/outline_size = 4
+
+[node name="Hint" type="Label" parent="NPC_Crush"]
+offset_left = -40.0
+offset_top = 20.0
+offset_right = 40.0
+offset_bottom = 42.0
+text = "[E] 互动"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 13
+theme_override_colors/font_color = Color(0.722, 0.196, 0.196, 1)
+theme_override_colors/font_outline_color = Color(0.992, 0.976, 0.929, 1)
+theme_override_constants/outline_size = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC_Crush"]
+shape = SubResource("RectangleShape2D_interact")
+
+[node name="NPC_Partner" type="Area2D" parent="."]
+position = Vector2(1040, 540)
+z_index = 2
+script = ExtResource("3_npc")
+npc_id = "partner"
+npc_name = "💔 TA"
+scene_to_trigger = "day3_love_02"
+chat_mode = true
+
+[node name="PixelSprite" type="Node2D" parent="NPC_Partner"]
+script = ExtResource("4_pix")
+
+[node name="NameLabel" type="Label" parent="NPC_Partner"]
+offset_left = -60.0
+offset_top = -62.0
+offset_right = 60.0
+offset_bottom = -38.0
+text = "💔 TA"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 15
+theme_override_colors/font_color = Color(0.157, 0.094, 0.039, 1)
+theme_override_colors/font_outline_color = Color(0.992, 0.976, 0.929, 1)
+theme_override_constants/outline_size = 4
+
+[node name="Hint" type="Label" parent="NPC_Partner"]
+offset_left = -40.0
+offset_top = 20.0
+offset_right = 40.0
+offset_bottom = 42.0
+text = "[E] 互动"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 13
+theme_override_colors/font_color = Color(0.722, 0.196, 0.196, 1)
+theme_override_colors/font_outline_color = Color(0.992, 0.976, 0.929, 1)
+theme_override_constants/outline_size = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC_Partner"]
+shape = SubResource("RectangleShape2D_interact")
+
+[node name="NPC_Xiaoyou" type="Area2D" parent="."]
+position = Vector2(220, 540)
+z_index = 2
+script = ExtResource("3_npc")
+npc_id = "xiaoyou"
+npc_name = "🍊 小柚"
+chat_mode = true
+can_wander = true
+wander_radius = 60.0
+wander_speed = 45.0
+
+[node name="PixelSprite" type="Node2D" parent="NPC_Xiaoyou"]
+script = ExtResource("4_pix")
+
+[node name="NameLabel" type="Label" parent="NPC_Xiaoyou"]
+offset_left = -60.0
+offset_top = -62.0
+offset_right = 60.0
+offset_bottom = -38.0
+text = "🍊 小柚"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 15
+theme_override_colors/font_color = Color(0.157, 0.094, 0.039, 1)
+theme_override_colors/font_outline_color = Color(0.992, 0.976, 0.929, 1)
+theme_override_constants/outline_size = 4
+
+[node name="Hint" type="Label" parent="NPC_Xiaoyou"]
+offset_left = -40.0
+offset_top = 20.0
+offset_right = 40.0
+offset_bottom = 42.0
+text = "[E] 互动"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 13
+theme_override_colors/font_color = Color(0.722, 0.196, 0.196, 1)
+theme_override_colors/font_outline_color = Color(0.992, 0.976, 0.929, 1)
+theme_override_constants/outline_size = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC_Xiaoyou"]
+shape = SubResource("RectangleShape2D_interact")
